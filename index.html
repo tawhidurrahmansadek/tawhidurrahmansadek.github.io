@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -51,7 +52,10 @@
             <a class="btn primary" href="#academic">Explore Journey</a>
             <a class="btn ghost" href="#about">About Me</a>
           </div>
-          <div class="hero-calligraphy" lang="ar" dir="rtl">وَقُلْ رَبِّ زِدْنِي عِلْمًا</div>
+          <div class="hero-quote" lang="ar" dir="rtl">
+            <span class="quote-mark">“</span>اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ<span class="quote-mark">”</span>
+            <small>— Surah Al-‘Alaq · 96:1</small>
+          </div>
         </div>
       </div>
 
@@ -78,7 +82,7 @@
           <div><span>University</span><strong>University of Rajshahi</strong></div>
           <div><span>Department</span><strong>Islamic Studies</strong></div>
           <div><span>Level</span><strong>Honours · 2nd Year</strong></div>
-          <div><span>Session</span><strong>2024–2025</strong></div>
+          <div><span>Academic Session</span><strong>2024–2025</strong></div>
         </div>
       </div>
     </section>
@@ -102,9 +106,9 @@
             <p class="education-status">Honours · 2nd Year · Current</p>
             <p class="education-location">Rajshahi-6205, Bangladesh</p>
             <div class="education-links">
-              <a href="https://www.ru.ac.bd/" target="_blank" rel="noopener noreferrer">Official Website <span>→</span></a>
-              <a href="https://www.ru.ac.bd/islamicstudies/" target="_blank" rel="noopener noreferrer">Department Website <span>→</span></a>
-              <a href="https://www.facebook.com/rajshahi.university.ac.bd" target="_blank" rel="noopener noreferrer">Facebook <span>→</span></a>
+              <a href="https://www.ru.ac.bd/" target="_blank" rel="noopener noreferrer" title="Official Website"><i class="bi bi-globe2 link-icon" aria-hidden="true"></i><span>Official Website</span><b>→</b></a>
+              <a href="https://www.ru.ac.bd/islamicstudies/" target="_blank" rel="noopener noreferrer" title="Department Website"><i class="bi bi-globe2 link-icon" aria-hidden="true"></i><span>Department Website</span><b>→</b></a>
+              <a href="https://www.facebook.com/rajshahi.university.ac.bd" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="bi bi-facebook link-icon" aria-hidden="true"></i><span>Facebook</span><b>→</b></a>
             </div>
           </div>
         </article>
@@ -119,9 +123,9 @@
             <p class="education-status">Alim · 2024</p>
             <div class="gpa-display"><span>GPA</span><strong>5.00</strong></div>
             <div class="education-links">
-              <button class="education-result-btn" type="button" data-result="alim">View Result <span>→</span></button>
-              <a href="https://dskm.ac.bd/" target="_blank" rel="noopener noreferrer">Official Website <span>→</span></a>
-              <a href="https://www.facebook.com/darunnazat1990" target="_blank" rel="noopener noreferrer">Facebook <span>→</span></a>
+              <button class="education-result-btn" type="button" data-result="alim" title="View Alim Result"><i class="bi bi-file-earmark-pdf link-icon" aria-hidden="true"></i><span>Result</span><b>→</b></button>
+              <a href="https://dskm.ac.bd/" target="_blank" rel="noopener noreferrer" title="Official Website"><i class="bi bi-globe2 link-icon" aria-hidden="true"></i><span>Official Website</span><b>→</b></a>
+              <a href="https://www.facebook.com/darunnazat1990" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="bi bi-facebook link-icon" aria-hidden="true"></i><span>Facebook</span><b>→</b></a>
             </div>
           </div>
         </article>
@@ -137,8 +141,8 @@
             <p class="education-status">Dakhil · 2022</p>
             <div class="gpa-display"><span>GPA</span><strong>5.00</strong></div>
             <div class="education-links">
-              <button class="education-result-btn" type="button" data-result="dakhil">View Result <span>→</span></button>
-              <a href="https://www.facebook.com/profile.php?id=100037623956044" target="_blank" rel="noopener noreferrer">Facebook <span>→</span></a>
+              <button class="education-result-btn" type="button" data-result="dakhil" title="View Dakhil Result"><i class="bi bi-file-earmark-pdf link-icon" aria-hidden="true"></i><span>Result</span><b>→</b></button>
+              <a href="https://www.facebook.com/profile.php?id=100037623956044" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="bi bi-facebook link-icon" aria-hidden="true"></i><span>Facebook</span><b>→</b></a>
             </div>
           </div>
         </article>
@@ -257,13 +261,13 @@
 
         <div class="contact-box">
           <a href="mailto:sadektawhid65@gmail.com" class="contact-link">
-            <span>Email</span><strong>sadektawhid65@gmail.com</strong><b>→</b>
+            <span class="contact-label"><i class="bi bi-envelope-fill contact-icon" aria-hidden="true"></i><em>Email</em></span><strong>sadektawhid65@gmail.com</strong><b>→</b>
           </a>
           <a href="https://www.facebook.com/TAWHIDURRAHMANSADEK" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span>Facebook</span><strong>Tawhidur Rahman Sadek</strong><b>→</b>
+            <span class="contact-label"><i class="bi bi-facebook contact-icon" aria-hidden="true"></i><em>Facebook</em></span><strong>Tawhidur Rahman Sadek</strong><b>→</b>
           </a>
           <a href="https://wa.me/8801645983436?text=Assalamu%20Alaikum%21%20Thank%20you%20for%20visiting%20my%20academic%20portfolio.%20I%20truly%20appreciate%20your%20time%20and%20interest.%20JazakAllahu%20Khairan." target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span>WhatsApp</span><strong>+880 1645-983436</strong><b>→</b>
+            <span class="contact-label"><i class="bi bi-whatsapp contact-icon" aria-hidden="true"></i><em>WhatsApp</em></span><strong>+880 1645-983436</strong><b>→</b>
           </a>
         </div>
       </div>
