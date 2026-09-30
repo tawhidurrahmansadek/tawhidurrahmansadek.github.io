@@ -13,3 +13,35 @@ document.querySelectorAll(".education-result-btn").forEach(btn=>btn.addEventList
 closeBtn?.addEventListener("click",closeModal);
 modal?.addEventListener("click",e=>{if(e.target.dataset.close==="true")closeModal()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeModal()});
+
+
+/* Gallery lightbox */
+const galleryItems=[...document.querySelectorAll(".gallery-item")];
+const galleryLightbox=document.getElementById("galleryLightbox");
+const galleryImage=document.getElementById("galleryImage");
+const galleryCaption=document.getElementById("galleryCaption");
+const galleryClose=document.getElementById("galleryClose");
+const galleryPrev=document.getElementById("galleryPrev");
+const galleryNext=document.getElementById("galleryNext");
+let galleryIndex=0;
+function showGalleryImage(index){
+  galleryIndex=(index+galleryItems.length)%galleryItems.length;
+  const item=galleryItems[galleryIndex];
+  const img=item.querySelector("img");
+  galleryImage.src=img.src;
+  galleryImage.alt=img.alt;
+  galleryCaption.textContent=item.querySelector("span")?.textContent||"";
+}
+function openGallery(index){showGalleryImage(index);galleryLightbox.classList.add("open");galleryLightbox.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
+function closeGallery(){galleryLightbox.classList.remove("open");galleryLightbox.setAttribute("aria-hidden","true");document.body.style.overflow=""}
+galleryItems.forEach(item=>item.addEventListener("click",()=>openGallery(Number(item.dataset.index))));
+galleryClose?.addEventListener("click",closeGallery);
+galleryPrev?.addEventListener("click",()=>showGalleryImage(galleryIndex-1));
+galleryNext?.addEventListener("click",()=>showGalleryImage(galleryIndex+1));
+galleryLightbox?.addEventListener("click",e=>{if(e.target.dataset.galleryClose==="true")closeGallery()});
+document.addEventListener("keydown",e=>{
+  if(!galleryLightbox?.classList.contains("open"))return;
+  if(e.key==="Escape")closeGallery();
+  if(e.key==="ArrowLeft")showGalleryImage(galleryIndex-1);
+  if(e.key==="ArrowRight")showGalleryImage(galleryIndex+1);
+});
