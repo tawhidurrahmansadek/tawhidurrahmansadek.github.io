@@ -237,19 +237,43 @@
       </div>
     </section>
 
-    <section id="gallery" class="section dark">
+    <section id="gallery" class="section dark gallery-section">
       <div class="section-head reveal">
         <div class="label">06 · Gallery</div>
         <h2>Moments from the journey.</h2>
+        <p class="section-note">Academic life, campus memories, events and meaningful moments from my journey.</p>
       </div>
-      <div class="gallery-grid reveal">
-        <div class="gallery-item large"><span>GALLERY</span></div>
-        <div class="gallery-item"><span>01</span></div>
-        <div class="gallery-item"><span>02</span></div>
-        <div class="gallery-item"><span>03</span></div>
+      <div class="gallery-grid" id="galleryGrid">
+        <button class="gallery-item" type="button" data-index="0"><img src="gallery/1st year last class with Latif sir.jpg" alt="First Year Last Class with Latif Sir" loading="lazy"><span>First Year Last Class with Latif Sir</span></button>
+        <button class="gallery-item" type="button" data-index="1"><img src="gallery/1st year last class.jpg" alt="First Year Last Class" loading="lazy"><span>First Year Last Class</span></button>
+        <button class="gallery-item" type="button" data-index="2"><img src="gallery/Abbu & Mikhu Sir(2).jfif" alt="Abbu & Mikhu Sir" loading="lazy"><span>Abbu & Mikhu Sir</span></button>
+        <button class="gallery-item" type="button" data-index="3"><img src="gallery/Abbu Class Time.png" alt="Abbu Class Time" loading="lazy"><span>Abbu Class Time</span></button>
+        <button class="gallery-item" type="button" data-index="4"><img src="gallery/Abbu Lecture.jpg" alt="Abbu Lecture" loading="lazy"><span>Abbu Lecture</span></button>
+        <button class="gallery-item" type="button" data-index="5"><img src="gallery/batch day.jpg" alt="Batch Day" loading="lazy"><span>Batch Day</span></button>
+        <button class="gallery-item" type="button" data-index="6"><img src="gallery/Central orientation program.jpg" alt="Central Orientation Program" loading="lazy"><span>Central Orientation Program</span></button>
+        <button class="gallery-item" type="button" data-index="7"><img src="gallery/CSF forum.jpg" alt="CSF Forum" loading="lazy"><span>CSF Forum</span></button>
+        <button class="gallery-item" type="button" data-index="8"><img src="gallery/Football time.jpg" alt="Football Time" loading="lazy"><span>Football Time</span></button>
+        <button class="gallery-item" type="button" data-index="9"><img src="gallery/Football time02.jpg" alt="Football Time 02" loading="lazy"><span>Football Time 02</span></button>
+        <button class="gallery-item" type="button" data-index="10"><img src="gallery/Football time03.jpg" alt="Football Time 03" loading="lazy"><span>Football Time 03</span></button>
+        <button class="gallery-item" type="button" data-index="11"><img src="gallery/Hole batch.jpg" alt="Whole Batch" loading="lazy"><span>Whole Batch</span></button>
+        <button class="gallery-item" type="button" data-index="12"><img src="gallery/Hole batch2.jpg" alt="Whole Batch 2" loading="lazy"><span>Whole Batch 2</span></button>
+        <button class="gallery-item" type="button" data-index="13"><img src="gallery/RU-72 short pitch cricket tournament winner.jpg" alt="RU-72 Short Pitch Cricket Tournament Winner" loading="lazy"><span>RU-72 Short Pitch Cricket Tournament Winner</span></button>
+        <button class="gallery-item" type="button" data-index="14"><img src="gallery/short pitch batch cricket tournament.jpg" alt="Short Pitch Batch Cricket Tournament" loading="lazy"><span>Short Pitch Batch Cricket Tournament</span></button>
+        <button class="gallery-item" type="button" data-index="15"><img src="gallery/Sonar para teachers2(1).jpg" alt="Sonar Para Teachers" loading="lazy"><span>Sonar Para Teachers</span></button>
       </div>
-      <p class="gallery-note reveal">Academic events, presentations, campus life and meaningful moments can be added here later.</p>
+      <p class="gallery-note reveal">Click any image to view it larger. Use the arrows or keyboard to move through the gallery.</p>
     </section>
+
+    <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+      <div class="gallery-backdrop" data-gallery-close="true"></div>
+      <div class="gallery-viewer" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+        <button class="gallery-close" id="galleryClose" type="button" aria-label="Close gallery">×</button>
+        <button class="gallery-prev" id="galleryPrev" type="button" aria-label="Previous image">‹</button>
+        <img id="galleryImage" src="" alt="">
+        <div class="gallery-caption" id="galleryCaption"></div>
+        <button class="gallery-next" id="galleryNext" type="button" aria-label="Next image">›</button>
+      </div>
+    </div>
 
     <section id="contact" class="section light">
       <div class="contact reveal">
