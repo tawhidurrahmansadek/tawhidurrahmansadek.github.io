@@ -21,8 +21,6 @@ const galleryLightbox=document.getElementById("galleryLightbox");
 const galleryImage=document.getElementById("galleryImage");
 const galleryCaption=document.getElementById("galleryCaption");
 const galleryClose=document.getElementById("galleryClose");
-const galleryPrev=document.getElementById("galleryPrev");
-const galleryNext=document.getElementById("galleryNext");
 let galleryIndex=0;
 function showGalleryImage(index){
   galleryIndex=(index+galleryItems.length)%galleryItems.length;
@@ -36,50 +34,13 @@ function openGallery(index){showGalleryImage(index);galleryLightbox.classList.ad
 function closeGallery(){galleryLightbox.classList.remove("open");galleryLightbox.setAttribute("aria-hidden","true");document.body.style.overflow=""}
 galleryItems.forEach(item=>item.addEventListener("click",()=>openGallery(Number(item.dataset.index))));
 galleryClose?.addEventListener("click",closeGallery);
-galleryPrev?.addEventListener("click",()=>showGalleryImage(galleryIndex-1));
-galleryNext?.addEventListener("click",()=>showGalleryImage(galleryIndex+1));
 galleryLightbox?.addEventListener("click",e=>{if(e.target.dataset.galleryClose==="true")closeGallery()});
 document.addEventListener("keydown",e=>{
   if(!galleryLightbox?.classList.contains("open"))return;
   if(e.key==="Escape")closeGallery();
-  if(e.key==="ArrowLeft")showGalleryImage(galleryIndex-1);
-  if(e.key==="ArrowRight")showGalleryImage(galleryIndex+1);
 });
 
 
-/* Hero background slideshow */
+/* Hero background */
 const heroSlides=[...document.querySelectorAll(".hero-slide")];
-const heroSlideshow=document.querySelector(".hero-slideshow");
-const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
-let heroIndex=0;
-let heroTimer=null;
-
-heroSlides.forEach(slide=>{
-  const img=slide.querySelector("img");
-  img?.addEventListener("error",()=>slide.remove());
-});
-
-function showHeroSlide(index){
-  const slides=[...document.querySelectorAll(".hero-slide")];
-  if(!slides.length)return;
-  heroIndex=(index+slides.length)%slides.length;
-  slides.forEach((slide,i)=>slide.classList.toggle("is-active",i===heroIndex));
-}
-
-function startHeroSlideshow(){
-  const slides=[...document.querySelectorAll(".hero-slide")];
-  if(slides.length<2||reduceMotion.matches)return;
-  clearInterval(heroTimer);
-  heroTimer=setInterval(()=>showHeroSlide(heroIndex+1),6000);
-}
-
-function stopHeroSlideshow(){
-  clearInterval(heroTimer);
-  heroTimer=null;
-}
-
-startHeroSlideshow();
-document.addEventListener("visibilitychange",()=>{
-  if(document.hidden) stopHeroSlideshow();
-  else startHeroSlideshow();
-});
+heroSlides.forEach(slide=>slide.classList.add("is-active"));
