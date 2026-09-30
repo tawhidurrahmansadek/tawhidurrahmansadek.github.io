@@ -30,9 +30,17 @@
 
   <main>
     <section class="hero" id="home">
-      <div class="pattern pattern-one"></div>
-      <div class="pattern pattern-two"></div>
-      <div class="arch-glow"></div>
+      <div class="hero-slideshow" aria-hidden="true">
+        <div class="hero-slide is-active"><img src="hero-01-ru-main-gate.jpg" alt=""></div>
+        <div class="hero-slide"><img src="hero-02-ru-group.jpg" alt=""></div>
+        <div class="hero-slide"><img src="hero-03-seminar.jpg" alt=""></div>
+        <div class="hero-slide"><img src="hero-04-madrasa.jpg" alt=""></div>
+        <div class="hero-slide"><img src="hero-05-dskm-campus.jpg" alt=""></div>
+        <div class="hero-slide"><img src="hero-06-islamic-studies.jpg" alt=""></div>
+        <div class="hero-slide"><img src="hero-07-ru-bus.jpg" alt=""></div>
+        <div class="hero-slide"><img src="hero-08-ru-mosque.jpg" alt=""></div>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="hero-content reveal">
         <div class="portrait-wrap">
@@ -44,8 +52,8 @@
 
         <div class="hero-copy">
           <div class="eyebrow">Islamic Studies · University of Rajshahi</div>
-          <div class="arabic-name" lang="ar" dir="rtl">تَوْحِيدُ الرَّحْمَٰنِ صَادِق</div>
-          <h1>Tawhidur Rahman Sadek</h1>
+          <h1 class="hero-name">Tawhidur Rahman Sadek</h1>
+          <div class="arabic-name" lang="ar" dir="rtl">تَوْحِيدُ الرَّحْمٰن صادِق</div>
           <p class="role">Islamic Studies Student</p>
           <p class="intro">Undergraduate student of Islamic Studies at the University of Rajshahi, building an academic journey through learning, study and gradual development.</p>
           <div class="actions">
@@ -222,18 +230,17 @@
         <div class="label">05 · Certificates</div>
         <h2>Certificates & learning.</h2>
       </div>
-      <div class="certificate-card reveal">
-        <div class="certificate-art">
-          <div class="cert-corner">✦</div>
-          <div class="cert-center">CERTIFICATE</div>
-          <div class="cert-line"></div>
-        </div>
-        <div class="certificate-copy">
-          <span class="small-label">Certificate Archive</span>
-          <h3>Learning and training records</h3>
-          <p>My certificates will be added here as a growing visual archive.</p>
-          <span class="future-note">More certificates can be added later.</span>
-        </div>
+      <div class="certificate-grid">
+        <article class="certificate-item reveal">
+          <div class="certificate-image-wrap">
+            <img src="certificate-research-training-2026.jpg" alt="Certificate of Completion — 5-Day Hands-on Research Training Program">
+          </div>
+          <div class="certificate-footer">
+            <h3>5-Day Hands-on Research Training Program</h3>
+            <p>Rajshahi University Higher Education &amp; Research Forum (RUHERF)</p>
+            <span>Certificate of Completion · 2026</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -244,22 +251,22 @@
         <p class="section-note">Academic life, campus memories, events and meaningful moments from my journey.</p>
       </div>
       <div class="gallery-grid" id="galleryGrid">
-        <button class="gallery-item" type="button" data-index="0"><img src="gallery/1st year last class with Latif sir.jpg" alt="First Year Last Class with Latif Sir" loading="lazy"><span>First Year Last Class with Latif Sir</span></button>
-        <button class="gallery-item" type="button" data-index="1"><img src="gallery/1st year last class.jpg" alt="First Year Last Class" loading="lazy"><span>First Year Last Class</span></button>
-        <button class="gallery-item" type="button" data-index="2"><img src="gallery/Abbu & Mikhu Sir(2).jfif" alt="Abbu & Mikhu Sir" loading="lazy"><span>Abbu & Mikhu Sir</span></button>
-        <button class="gallery-item" type="button" data-index="3"><img src="gallery/Abbu Class Time.png" alt="Abbu Class Time" loading="lazy"><span>Abbu Class Time</span></button>
-        <button class="gallery-item" type="button" data-index="4"><img src="gallery/Abbu Lecture.jpg" alt="Abbu Lecture" loading="lazy"><span>Abbu Lecture</span></button>
-        <button class="gallery-item" type="button" data-index="5"><img src="gallery/batch day.jpg" alt="Batch Day" loading="lazy"><span>Batch Day</span></button>
-        <button class="gallery-item" type="button" data-index="6"><img src="gallery/Central orientation program.jpg" alt="Central Orientation Program" loading="lazy"><span>Central Orientation Program</span></button>
-        <button class="gallery-item" type="button" data-index="7"><img src="gallery/CSF forum.jpg" alt="CSF Forum" loading="lazy"><span>CSF Forum</span></button>
-        <button class="gallery-item" type="button" data-index="8"><img src="gallery/Football time.jpg" alt="Football Time" loading="lazy"><span>Football Time</span></button>
-        <button class="gallery-item" type="button" data-index="9"><img src="gallery/Football time02.jpg" alt="Football Time 02" loading="lazy"><span>Football Time 02</span></button>
-        <button class="gallery-item" type="button" data-index="10"><img src="gallery/Football time03.jpg" alt="Football Time 03" loading="lazy"><span>Football Time 03</span></button>
-        <button class="gallery-item" type="button" data-index="11"><img src="gallery/Hole batch.jpg" alt="Whole Batch" loading="lazy"><span>Whole Batch</span></button>
-        <button class="gallery-item" type="button" data-index="12"><img src="gallery/Hole batch2.jpg" alt="Whole Batch 2" loading="lazy"><span>Whole Batch 2</span></button>
-        <button class="gallery-item" type="button" data-index="13"><img src="gallery/RU-72 short pitch cricket tournament winner.jpg" alt="RU-72 Short Pitch Cricket Tournament Winner" loading="lazy"><span>RU-72 Short Pitch Cricket Tournament Winner</span></button>
-        <button class="gallery-item" type="button" data-index="14"><img src="gallery/short pitch batch cricket tournament.jpg" alt="Short Pitch Batch Cricket Tournament" loading="lazy"><span>Short Pitch Batch Cricket Tournament</span></button>
-        <button class="gallery-item" type="button" data-index="15"><img src="gallery/Sonar para teachers2(1).jpg" alt="Sonar Para Teachers" loading="lazy"><span>Sonar Para Teachers</span></button>
+        <button class="gallery-item" type="button" data-index="0"><img src="1st year last class with Latif sir.jpg" alt="First Year Last Class with Latif Sir" loading="lazy"><span>First Year Last Class with Latif Sir</span></button>
+        <button class="gallery-item" type="button" data-index="1"><img src="1st year last class.jpg" alt="First Year Last Class" loading="lazy"><span>First Year Last Class</span></button>
+        <button class="gallery-item" type="button" data-index="2"><img src="Abbu & Mikhu Sir(2).jfif" alt="Abbu & Mikhu Sir" loading="lazy"><span>Abbu & Mikhu Sir</span></button>
+        <button class="gallery-item" type="button" data-index="3"><img src="Abbu Class Time.png" alt="Abbu Class Time" loading="lazy"><span>Abbu Class Time</span></button>
+        <button class="gallery-item" type="button" data-index="4"><img src="Abbu Lecture.jpg" alt="Abbu Lecture" loading="lazy"><span>Abbu Lecture</span></button>
+        <button class="gallery-item" type="button" data-index="5"><img src="batch day.jpg" alt="Batch Day" loading="lazy"><span>Batch Day</span></button>
+        <button class="gallery-item" type="button" data-index="6"><img src="Central orientation program.jpg" alt="Central Orientation Program" loading="lazy"><span>Central Orientation Program</span></button>
+        <button class="gallery-item" type="button" data-index="7"><img src="CSF forum.jpg" alt="CSF Forum" loading="lazy"><span>CSF Forum</span></button>
+        <button class="gallery-item" type="button" data-index="8"><img src="Football time.jpg" alt="Football Time" loading="lazy"><span>Football Time</span></button>
+        <button class="gallery-item" type="button" data-index="9"><img src="Football time02.jpg" alt="Football Time 02" loading="lazy"><span>Football Time 02</span></button>
+        <button class="gallery-item" type="button" data-index="10"><img src="Football time03.jpg" alt="Football Time 03" loading="lazy"><span>Football Time 03</span></button>
+        <button class="gallery-item" type="button" data-index="11"><img src="Hole batch.jpg" alt="Whole Batch" loading="lazy"><span>Whole Batch</span></button>
+        <button class="gallery-item" type="button" data-index="12"><img src="Hole batch2.jpg" alt="Whole Batch 2" loading="lazy"><span>Whole Batch 2</span></button>
+        <button class="gallery-item" type="button" data-index="13"><img src="RU-72 short pitch cricket tournament winner.jpg" alt="RU-72 Short Pitch Cricket Tournament Winner" loading="lazy"><span>RU-72 Short Pitch Cricket Tournament Winner</span></button>
+        <button class="gallery-item" type="button" data-index="14"><img src="short pitch batch cricket tournament.jpg" alt="Short Pitch Batch Cricket Tournament" loading="lazy"><span>Short Pitch Batch Cricket Tournament</span></button>
+        <button class="gallery-item" type="button" data-index="15"><img src="Sonar para teachers2(1).jpg" alt="Sonar Para Teachers" loading="lazy"><span>Sonar Para Teachers</span></button>
       </div>
       <p class="gallery-note reveal">Click any image to view it larger. Use the arrows or keyboard to move through the gallery.</p>
     </section>
@@ -284,14 +291,17 @@
         </div>
 
         <div class="contact-box">
-          <a href="mailto:sadektawhid65@gmail.com" class="contact-link">
-            <span class="contact-label"><i class="bi bi-envelope-fill contact-icon" aria-hidden="true"></i><em>Email</em></span><strong>sadektawhid65@gmail.com</strong><b>→</b>
+          <a href="mailto:sadektawhid65@gmail.com" class="contact-link contact-email">
+            <span class="contact-icon-wrap"><i class="bi bi-envelope-fill" aria-hidden="true"></i></span>
+            <span class="contact-text"><strong>EMAIL</strong><em>Send me an email</em></span><b>→</b>
           </a>
-          <a href="https://www.facebook.com/TAWHIDURRAHMANSADEK" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-label"><i class="bi bi-facebook contact-icon" aria-hidden="true"></i><em>Facebook</em></span><strong>Tawhidur Rahman Sadek</strong><b>→</b>
+          <a href="https://www.facebook.com/TAWHIDURRAHMANSADEK" target="_blank" rel="noopener noreferrer" class="contact-link contact-facebook">
+            <span class="contact-icon-wrap"><i class="bi bi-facebook" aria-hidden="true"></i></span>
+            <span class="contact-text"><strong>FACEBOOK</strong><em>Connect with me on Facebook</em></span><b>→</b>
           </a>
-          <a href="https://wa.me/8801645983436?text=Assalamu%20Alaikum%21%20Thank%20you%20for%20visiting%20my%20academic%20portfolio.%20I%20truly%20appreciate%20your%20time%20and%20interest.%20JazakAllahu%20Khairan." target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-label"><i class="bi bi-whatsapp contact-icon" aria-hidden="true"></i><em>WhatsApp</em></span><strong>+880 1645-983436</strong><b>→</b>
+          <a href="https://wa.me/8801645983436?text=Assalamu%20Alaikum%21%20Thank%20you%20for%20visiting%20my%20academic%20portfolio.%20I%20truly%20appreciate%20your%20time%20and%20interest.%20JazakAllahu%20Khairan." target="_blank" rel="noopener noreferrer" class="contact-link contact-whatsapp">
+            <span class="contact-icon-wrap"><i class="bi bi-whatsapp" aria-hidden="true"></i></span>
+            <span class="contact-text"><strong>WHATSAPP</strong><em>Message me on WhatsApp</em></span><b>→</b>
           </a>
         </div>
       </div>
