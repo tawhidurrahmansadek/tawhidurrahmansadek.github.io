@@ -45,3 +45,18 @@ document.addEventListener("keydown",e=>{
   if(e.key==="ArrowLeft")showGalleryImage(galleryIndex-1);
   if(e.key==="ArrowRight")showGalleryImage(galleryIndex+1);
 });
+
+
+/* Hero background slideshow */
+const heroSlides=[...document.querySelectorAll(".hero-slide")];
+const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+let heroIndex=0;
+let heroTimer=null;
+function showHeroSlide(index){
+  if(!heroSlides.length)return;
+  heroIndex=(index+heroSlides.length)%heroSlides.length;
+  heroSlides.forEach((slide,i)=>slide.classList.toggle("is-active",i===heroIndex));
+}
+if(heroSlides.length>1&&!reduceMotion.matches){
+  heroTimer=setInterval(()=>showHeroSlide(heroIndex+1),6000);
+}
