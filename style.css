@@ -86,7 +86,7 @@ body{font-family:"Nunito Sans",sans-serif;color:#18352d;background:#f6f3ea;overf
 .year-card h3{font:600 32px "Cormorant Garamond",serif;margin-top:10px}.year-card p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.78);margin-top:3px}
 .result-btn,.card-note{margin-top:auto;width:max-content}.result-btn{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;padding:10px 14px;border-radius:6px;font:700 10px "Nunito Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.25s}.result-btn:hover{background:rgba(255,255,255,.17)}.result-btn span{margin-left:6px}.card-note{font:700 10px "Nunito Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 
-.skills-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skills-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .skill-category{min-height:240px;padding:30px;border-radius:14px;position:relative;overflow:hidden;color:#fff;box-shadow:0 16px 38px rgba(18,50,42,.12);transition:.3s}.skill-category:hover{transform:translateY(-5px)}
 .skill-category:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(255,255,255,.14);transform:rotate(45deg);right:-110px;bottom:-105px}
 .skill-category.academic{background:linear-gradient(145deg,#0a4b3b,#13735a)}.skill-category.digital{background:linear-gradient(145deg,#102d45,#1b5571)}.skill-category.soft{background:linear-gradient(145deg,#7b612a,#a88742)}
