@@ -155,15 +155,15 @@ footer span:last-child{font-family:"Amiri",serif;font-size:12px;letter-spacing:0
 .arabic-name{font:700 clamp(25px,3vw,38px)/1.5 "Amiri",serif;color:#e5c97e;margin-top:10px;margin-bottom:8px;white-space:nowrap}
 .role{text-transform:uppercase;letter-spacing:.14em}
 .certificate-section{background:linear-gradient(145deg,#edf3ee,#f8f5ed)}
-.certificate-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(0,520px);justify-content:start}
+.certificate-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(0,900px);justify-content:start}
 .certificate-item{overflow:hidden;border:2px solid #0d2636;border-radius:14px;background:#fff;box-shadow:0 18px 45px rgba(13,38,54,.12);transition:transform .3s,box-shadow .3s}
 .certificate-item:hover{transform:translateY(-5px);box-shadow:0 24px 55px rgba(13,38,54,.18)}
-.certificate-image-wrap{padding:12px;background:#f8f6ef;border-bottom:1px solid rgba(13,38,54,.12)}
-.certificate-image-wrap img{display:block;width:100%;height:auto;max-height:720px;object-fit:contain;border-radius:6px}
-.certificate-footer{background:#0d2636;padding:20px 22px 21px}
-.certificate-footer h3{font:600 27px/1.08 "Cormorant Garamond",serif;color:#fff;margin:0 0 7px}
-.certificate-footer p{font-size:11px;line-height:1.6;color:#c5d2d9;margin:0 0 8px}
-.certificate-footer span{font:700 9px "Nunito Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#d8bd70}
+.certificate-image-wrap{min-width:0;padding:12px;background:#f8f6ef;border-right:1px solid rgba(13,38,54,.12);display:flex;align-items:center;justify-content:center}
+.certificate-image-wrap img{display:block;width:100%;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+.certificate-footer{background:#0d2636;padding:30px 32px;display:flex;flex-direction:column;justify-content:center}
+.certificate-footer h3{font:600 31px/1.08 "Cormorant Garamond",serif;color:#fff;margin:0 0 10px}
+.certificate-footer p{font-size:12px;line-height:1.7;color:#c5d2d9;margin:0 0 10px}
+.certificate-footer span{font:700 10px "Nunito Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#d8bd70}
 .contact-box{padding:8px;background:#103a30;border-radius:14px}
 .contact-link{grid-template-columns:58px 1fr 20px;gap:16px;padding:20px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
 .contact-link:hover{background:rgba(255,255,255,.045);transform:none}
@@ -207,13 +207,14 @@ footer span:last-child{font-family:"Amiri",serif;font-size:12px;letter-spacing:0
 .gallery-caption{left:20px;right:20px;bottom:0;color:#e9f1ed}
 .gallery-close{right:0;top:0}
 .gallery-prev,.gallery-next{display:none}
-.certificate-item{display:grid;grid-template-columns:.75fr 1.25fr;min-height:330px}
+.certificate-item{display:grid;grid-template-columns:1.15fr .85fr;min-height:390px}
 .certificate-art{min-height:100%;display:grid;place-items:center}
 .certificate-footer{display:flex;flex-direction:column;justify-content:center}
 .certificate-pending{display:block;margin-top:13px;color:#9fb0b8;font-size:10px;line-height:1.5}
 @media(max-width:850px){
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .certificate-item{grid-template-columns:1fr}
+  .certificate-image-wrap{border-right:0;border-bottom:1px solid rgba(13,38,54,.12)}
   .certificate-art{min-height:210px}
 }
 @media(max-width:560px){
