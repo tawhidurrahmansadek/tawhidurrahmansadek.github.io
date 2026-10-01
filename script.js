@@ -41,9 +41,29 @@ document.addEventListener("keydown",e=>{
 });
 
 
-/* Hero background */
+/* Hero background slideshow */
 const heroSlides=[...document.querySelectorAll(".hero-slide")];
-heroSlides.forEach(slide=>slide.classList.add("is-active"));
+const heroImageCaption=document.getElementById("heroImageCaption");
+let heroSlideIndex=0;
+const HERO_INTERVAL=3000;
+const HERO_FADE=1200;
+
+function showHeroSlide(index){
+  if(!heroSlides.length)return;
+  heroSlideIndex=(index+heroSlides.length)%heroSlides.length;
+  heroSlides.forEach((slide,i)=>slide.classList.toggle("is-active",i===heroSlideIndex));
+  const caption=heroSlides[heroSlideIndex]?.dataset.caption||"";
+  if(heroImageCaption)heroImageCaption.textContent=caption;
+}
+
+if(heroSlides.length){
+  showHeroSlide(0);
+  heroSlides.slice(1).forEach(slide=>{
+    const img=slide.querySelector("img");
+    if(img){const preloader=new Image();preloader.src=img.src;}
+  });
+  window.setInterval(()=>showHeroSlide(heroSlideIndex+1),HERO_INTERVAL);
+}
 
 /* Certificate full-screen preview + zoom/pan */
 const certificateTrigger=document.getElementById("openCertificate");
