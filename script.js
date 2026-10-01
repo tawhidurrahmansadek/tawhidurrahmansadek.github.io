@@ -53,7 +53,8 @@ function showHeroSlide(index){
   heroSlideIndex=(index+heroSlides.length)%heroSlides.length;
   heroSlides.forEach((slide,i)=>slide.classList.toggle("is-active",i===heroSlideIndex));
   const caption=heroSlides[heroSlideIndex]?.dataset.caption||"";
-  if(heroImageCaption)heroImageCaption.textContent=caption;
+  const cleanCaption=caption.replace(/\.(jpe?g|png|jfif)$/i,"");
+  if(heroImageCaption)heroImageCaption.textContent=cleanCaption;
 }
 
 if(heroSlides.length){
