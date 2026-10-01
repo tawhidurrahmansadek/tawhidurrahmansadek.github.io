@@ -45,29 +45,112 @@ document.addEventListener("keydown",e=>{
 const heroSlides=[...document.querySelectorAll(".hero-slide")];
 heroSlides.forEach(slide=>slide.classList.add("is-active"));
 
-/* Certificate full-screen preview */
+/* Certificate full-screen preview + zoom/pan */
 const certificateTrigger=document.getElementById("openCertificate");
 const certificateLightbox=document.getElementById("certificateLightbox");
 const certificateClose=document.getElementById("closeCertificate");
+const certificateViewport=document.getElementById("certificateZoomViewport");
+const certificateZoomImage=document.getElementById("certificateZoomImage");
+const certificateZoomIn=document.getElementById("certificateZoomIn");
+const certificateZoomOut=document.getElementById("certificateZoomOut");
+const certificateZoomReset=document.getElementById("certificateZoomReset");
+const certificateZoomLevel=document.getElementById("certificateZoomLevel");
+let certificateScale=1, certificateX=0, certificateY=0;
+let certificateDragging=false, certificateStartX=0, certificateStartY=0, certificateStartPanX=0, certificateStartPanY=0;
+let certificatePointers=new Map(), certificatePinchStartDistance=0, certificatePinchStartScale=1;
+
+function updateCertificateZoom(){
+  certificateScale=Math.min(5,Math.max(1,certificateScale));
+  if(certificateScale===1){certificateX=0;certificateY=0;}
+  certificateZoomImage.style.transform=`translate3d(${certificateX}px,${certificateY}px,0) scale(${certificateScale})`;
+  certificateZoomLevel.textContent=`${Math.round(certificateScale*100)}%`;
+}
+function setCertificateScale(next){
+  const old=certificateScale;
+  certificateScale=Math.min(5,Math.max(1,next));
+  if(old!==certificateScale && certificateScale===1){certificateX=0;certificateY=0;}
+  updateCertificateZoom();
+}
+function resetCertificateZoom(){certificateScale=1;certificateX=0;certificateY=0;updateCertificateZoom();}
 function openCertificate(){
   certificateLightbox.classList.add("open");
   certificateLightbox.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
+  resetCertificateZoom();
   certificateClose.focus();
 }
 function closeCertificate(){
   certificateLightbox.classList.remove("open");
   certificateLightbox.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
+  resetCertificateZoom();
   certificateTrigger.focus();
 }
 certificateTrigger?.addEventListener("click",openCertificate);
 certificateClose?.addEventListener("click",closeCertificate);
+certificateZoomIn?.addEventListener("click",()=>setCertificateScale(certificateScale+0.25));
+certificateZoomOut?.addEventListener("click",()=>setCertificateScale(certificateScale-0.25));
+certificateZoomReset?.addEventListener("click",resetCertificateZoom);
+
+certificateViewport?.addEventListener("dblclick",()=>{
+  setCertificateScale(certificateScale===1?2:1);
+});
+certificateViewport?.addEventListener("wheel",e=>{
+  e.preventDefault();
+  setCertificateScale(certificateScale+(e.deltaY<0?0.15:-0.15));
+},{passive:false});
+
+certificateViewport?.addEventListener("pointerdown",e=>{
+  certificateViewport.setPointerCapture(e.pointerId);
+  certificatePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(certificatePointers.size===1 && certificateScale>1){
+    certificateDragging=true;
+    certificateViewport.classList.add("is-dragging");
+    certificateStartX=e.clientX; certificateStartY=e.clientY;
+    certificateStartPanX=certificateX; certificateStartPanY=certificateY;
+  }else if(certificatePointers.size===2){
+    const pts=[...certificatePointers.values()];
+    certificatePinchStartDistance=Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y);
+    certificatePinchStartScale=certificateScale;
+  }
+});
+certificateViewport?.addEventListener("pointermove",e=>{
+  if(!certificatePointers.has(e.pointerId))return;
+  certificatePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(certificatePointers.size===2){
+    const pts=[...certificatePointers.values()];
+    const distance=Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y);
+    if(certificatePinchStartDistance>0){
+      setCertificateScale(certificatePinchStartScale*(distance/certificatePinchStartDistance));
+    }
+  }else if(certificateDragging){
+    certificateX=certificateStartPanX+(e.clientX-certificateStartX);
+    certificateY=certificateStartPanY+(e.clientY-certificateStartY);
+    updateCertificateZoom();
+  }
+});
+function endCertificatePointer(e){
+  certificatePointers.delete(e.pointerId);
+  if(certificatePointers.size===0){
+    certificateDragging=false;
+    certificateViewport?.classList.remove("is-dragging");
+  }else if(certificatePointers.size===1){
+    const p=[...certificatePointers.values()][0];
+    certificateStartX=p.x; certificateStartY=p.y;
+    certificateStartPanX=certificateX; certificateStartPanY=certificateY;
+    certificateDragging=certificateScale>1;
+  }
+}
+certificateViewport?.addEventListener("pointerup",endCertificatePointer);
+certificateViewport?.addEventListener("pointercancel",endCertificatePointer);
 certificateLightbox?.addEventListener("click",e=>{
   if(e.target.dataset.certificateClose==="true")closeCertificate();
 });
 document.addEventListener("keydown",e=>{
   if(!certificateLightbox?.classList.contains("open"))return;
   if(e.key==="Escape")closeCertificate();
+  if(e.key==="+"||e.key==="=")setCertificateScale(certificateScale+0.25);
+  if(e.key==="-"||e.key==="_")setCertificateScale(certificateScale-0.25);
+  if(e.key==="0")resetCertificateZoom();
   if(e.key==="Tab"){e.preventDefault();certificateClose.focus();}
 });
