@@ -237,7 +237,16 @@
       <div class="certificate-lightbox-backdrop" data-certificate-close="true"></div>
       <div class="certificate-lightbox-viewer">
         <button class="certificate-lightbox-close" id="closeCertificate" type="button" aria-label="Close certificate">×</button>
-        <img src="IMG-20260929-WA0010 (1).jpg" alt="Certificate of Completion — 5-Day Hands-on Research Training Program">
+        <div class="certificate-zoom-viewport" id="certificateZoomViewport">
+          <img id="certificateZoomImage" src="IMG-20260929-WA0010 (1).jpg" alt="Certificate of Completion — 5-Day Hands-on Research Training Program">
+        </div>
+        <div class="certificate-zoom-controls" aria-label="Certificate zoom controls">
+          <button type="button" id="certificateZoomOut" aria-label="Zoom out">−</button>
+          <span id="certificateZoomLevel">100%</span>
+          <button type="button" id="certificateZoomIn" aria-label="Zoom in">+</button>
+          <button type="button" id="certificateZoomReset" aria-label="Reset zoom">↺</button>
+        </div>
+        <div class="certificate-zoom-help">Scroll / pinch to zoom · Drag to move</div>
       </div>
     </div>
 
