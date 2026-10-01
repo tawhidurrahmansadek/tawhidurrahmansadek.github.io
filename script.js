@@ -44,3 +44,30 @@ document.addEventListener("keydown",e=>{
 /* Hero background */
 const heroSlides=[...document.querySelectorAll(".hero-slide")];
 heroSlides.forEach(slide=>slide.classList.add("is-active"));
+
+/* Certificate full-screen preview */
+const certificateTrigger=document.getElementById("openCertificate");
+const certificateLightbox=document.getElementById("certificateLightbox");
+const certificateClose=document.getElementById("closeCertificate");
+function openCertificate(){
+  certificateLightbox.classList.add("open");
+  certificateLightbox.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+  certificateClose.focus();
+}
+function closeCertificate(){
+  certificateLightbox.classList.remove("open");
+  certificateLightbox.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+  certificateTrigger.focus();
+}
+certificateTrigger?.addEventListener("click",openCertificate);
+certificateClose?.addEventListener("click",closeCertificate);
+certificateLightbox?.addEventListener("click",e=>{
+  if(e.target.dataset.certificateClose==="true")closeCertificate();
+});
+document.addEventListener("keydown",e=>{
+  if(!certificateLightbox?.classList.contains("open"))return;
+  if(e.key==="Escape")closeCertificate();
+  if(e.key==="Tab"){e.preventDefault();certificateClose.focus();}
+});
