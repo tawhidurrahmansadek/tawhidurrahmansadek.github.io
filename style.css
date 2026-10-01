@@ -221,3 +221,19 @@ footer span:last-child{font-family:"Amiri",serif;font-size:12px;letter-spacing:0
   .gallery-grid{grid-template-columns:1fr}
   .gallery-item{aspect-ratio:4/3}
 }
+
+/* Compact certificate card and full-screen image viewer */
+.certificate-grid{grid-template-columns:minmax(0,620px)}
+.certificate-item{display:flex;flex-direction:column;min-height:0}
+.certificate-image-wrap{display:block;width:100%;padding:12px;background:#f8f6ef;border:0;cursor:zoom-in}
+.certificate-image-wrap img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.certificate-image-wrap:focus-visible{outline:3px solid #c9a85b;outline-offset:-5px}
+.certificate-caption{margin:0;padding:13px 16px;background:#0d2636;color:#fff;font:600 12px/1.6 "Nunito Sans",sans-serif;text-align:center}
+.certificate-lightbox{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;padding:22px}
+.certificate-lightbox.open{display:flex}
+.certificate-lightbox-backdrop{position:absolute;inset:0;background:rgba(2,12,10,.93);backdrop-filter:blur(7px);cursor:zoom-out}
+.certificate-lightbox-viewer{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;max-width:96vw;max-height:94dvh}
+.certificate-lightbox-viewer img{display:block;max-width:94vw;max-height:90dvh;width:auto;height:auto;object-fit:contain;border-radius:5px;box-shadow:0 20px 70px rgba(0,0,0,.4)}
+.certificate-lightbox-close{position:fixed;right:20px;top:16px;z-index:3;display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:#0d2636;color:#fff;font-size:30px;line-height:1;cursor:pointer}
+.certificate-lightbox-close:hover,.certificate-lightbox-close:focus-visible{background:#27536a}
+@media(max-width:560px){.certificate-grid{grid-template-columns:minmax(0,1fr)}.certificate-image-wrap{padding:8px}.certificate-caption{font-size:11px;padding:11px}.certificate-lightbox{padding:10px}.certificate-lightbox-viewer img{max-width:96vw;max-height:88dvh}.certificate-lightbox-close{top:12px;right:12px}}
