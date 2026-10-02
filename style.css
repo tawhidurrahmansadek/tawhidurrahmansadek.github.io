@@ -52,6 +52,9 @@ body{font-family:"Nunito Sans",sans-serif;color:#18352d;background:#f6f3ea;overf
 .education-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
 .education-card{position:relative;overflow:hidden;min-height:470px;padding:30px 26px 25px;border-radius:16px;background:#fff;border:1px solid #dfe7e1;box-shadow:0 18px 45px rgba(20,55,45,.09);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
 .education-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(20,55,45,.13)}
+.university-card{background:linear-gradient(145deg,#f5f9ff 0%,#edf4fc 100%)}
+.alim-card{background:linear-gradient(145deg,#f4fbf7 0%,#eaf5ef 100%)}
+.dakhil-card{background:linear-gradient(145deg,#fffaf0 0%,#fff4d9 100%)}
 .education-card:before{content:"";position:absolute;inset:0 0 auto;height:5px}
 .university-card:before{background:linear-gradient(90deg,#174f8a,#2d6fb5)}
 .alim-card:before{background:linear-gradient(90deg,#0b694d,#c7a04b)}
@@ -59,7 +62,10 @@ body{font-family:"Nunito Sans",sans-serif;color:#18352d;background:#f6f3ea;overf
 .institution-logo-wrap{height:125px;display:grid;place-items:center;margin-bottom:20px}
 .institution-logo{width:112px;height:112px;object-fit:contain;border-radius:50%;background:#fff}
 .education-body{display:flex;flex-direction:column;flex:1}
-.education-type{font:700 9px "Nunito Sans",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8c7131;margin-bottom:9px}
+.education-type{font:800 16px "Nunito Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;line-height:1.2}
+.university-card .education-type{color:#174f8a}
+.alim-card .education-type{color:#0b694d}
+.dakhil-card .education-type{color:#b58a18}
 .education-card h3{font:600 29px/1.1 "Cormorant Garamond",serif;color:#173d32;margin:0 0 8px}
 .education-program{font-size:14px;font-weight:700;color:#315b4e;margin-bottom:8px}
 .education-status{font:700 11px "Nunito Sans",sans-serif;letter-spacing:.07em;color:#62776e;margin-bottom:7px}
