@@ -52,9 +52,9 @@ body{font-family:"Nunito Sans",sans-serif;color:#18352d;background:#f6f3ea;overf
 .education-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
 .education-card{position:relative;overflow:hidden;min-height:470px;padding:30px 26px 25px;border-radius:16px;background:#fff;border:1px solid #dfe7e1;box-shadow:0 18px 45px rgba(20,55,45,.09);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
 .education-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(20,55,45,.13)}
-.university-card{background:linear-gradient(145deg,#f5f9ff 0%,#edf4fc 100%)}
-.alim-card{background:linear-gradient(145deg,#f4fbf7 0%,#eaf5ef 100%)}
-.dakhil-card{background:linear-gradient(145deg,#fffaf0 0%,#fff4d9 100%)}
+.university-card{background:linear-gradient(145deg,#0b4a3a,#146b54)}
+.alim-card{background:linear-gradient(145deg,#102f48,#174d68)}
+.dakhil-card{background:linear-gradient(145deg,#80642b,#a9843d)}
 .education-card:before{content:"";position:absolute;inset:0 0 auto;height:5px}
 .university-card:before{background:linear-gradient(90deg,#174f8a,#2d6fb5)}
 .alim-card:before{background:linear-gradient(90deg,#0b694d,#c7a04b)}
@@ -63,9 +63,16 @@ body{font-family:"Nunito Sans",sans-serif;color:#18352d;background:#f6f3ea;overf
 .institution-logo{width:112px;height:112px;object-fit:contain;border-radius:50%;background:#fff}
 .education-body{display:flex;flex-direction:column;flex:1}
 .education-type{font:800 16px "Nunito Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;line-height:1.2}
-.university-card .education-type{color:#174f8a}
-.alim-card .education-type{color:#0b694d}
-.dakhil-card .education-type{color:#b58a18}
+.university-card .education-type,.alim-card .education-type,.dakhil-card .education-type{color:rgba(255,255,255,.92)}
+.university-card h3,.alim-card h3,.dakhil-card h3{color:#fff}
+.university-card .education-program,.alim-card .education-program,.dakhil-card .education-program{color:rgba(255,255,255,.9)}
+.university-card .education-status,.alim-card .education-status,.dakhil-card .education-status,.university-card .education-location,.alim-card .education-location,.dakhil-card .education-location{color:rgba(255,255,255,.72)}
+.university-card .gpa-display span,.alim-card .gpa-display span,.dakhil-card .gpa-display span{color:rgba(255,255,255,.8)}
+.university-card .gpa-display strong,.alim-card .gpa-display strong,.dakhil-card .gpa-display strong{color:#fff}
+.university-card .education-links a,.university-card .education-result-btn,.alim-card .education-links a,.alim-card .education-result-btn,.dakhil-card .education-links a,.dakhil-card .education-result-btn{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.28);color:#fff}
+.university-card .education-links .link-icon,.alim-card .education-links .link-icon,.dakhil-card .education-links .link-icon{color:#fff}
+.university-card .education-links b,.alim-card .education-links b,.dakhil-card .education-links b{color:#f4d98a}
+.university-card .education-links a:hover,.university-card .education-result-btn:hover,.alim-card .education-links a:hover,.alim-card .education-result-btn:hover,.dakhil-card .education-links a:hover,.dakhil-card .education-result-btn:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.45)}
 .education-card h3{font:600 29px/1.1 "Cormorant Garamond",serif;color:#173d32;margin:0 0 8px}
 .education-program{font-size:14px;font-weight:700;color:#315b4e;margin-bottom:8px}
 .education-status{font:700 11px "Nunito Sans",sans-serif;letter-spacing:.07em;color:#62776e;margin-bottom:7px}
