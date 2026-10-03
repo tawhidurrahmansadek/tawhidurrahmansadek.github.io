@@ -74,6 +74,7 @@ body{font-family:"Nunito Sans",sans-serif;color:#18352d;background:#f6f3ea;overf
 .university-card .education-links b,.alim-card .education-links b,.dakhil-card .education-links b{color:#f4d98a}
 .university-card .education-links a:hover,.university-card .education-result-btn:hover,.alim-card .education-links a:hover,.alim-card .education-result-btn:hover,.dakhil-card .education-links a:hover,.dakhil-card .education-result-btn:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.45)}
 .education-card h3{font:600 29px/1.1 "Cormorant Garamond",serif;color:#173d32;margin:0 0 8px}
+.university-card h3,.alim-card h3,.dakhil-card h3{color:#fff!important;text-shadow:0 1px 2px rgba(0,0,0,.18)}
 .education-program{font-size:14px;font-weight:700;color:#315b4e;margin-bottom:8px}
 .education-status{font:700 11px "Nunito Sans",sans-serif;letter-spacing:.07em;color:#62776e;margin-bottom:7px}
 .education-location{font-size:12px;color:#7c8c85;line-height:1.6}
