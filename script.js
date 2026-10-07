@@ -12,7 +12,17 @@ openBtn?.addEventListener("click",()=>{resultLabel.textContent="Academic Result"
 document.querySelectorAll(".education-result-btn").forEach(btn=>btn.addEventListener("click",()=>{const type=btn.dataset.result;if(type==="alim"){resultLabel.textContent="Alim Result";resultTitle.textContent="Alim · 2024";resultContent.innerHTML='<iframe class="pdf-frame" src="alim-result-2024.pdf#view=FitH" title="Alim 2024 result"></iframe><div class="pdf-fallback">If the PDF does not load here, <a href="alim-result-2024.pdf" target="_blank" rel="noopener noreferrer">open the original result</a>.</div>';}else if(type==="dakhil"){resultLabel.textContent="Dakhil Result";resultTitle.textContent="Dakhil · 2022";resultContent.innerHTML='<iframe class="pdf-frame" src="dakhil-result-2022.pdf#view=FitH" title="Dakhil 2022 result"></iframe><div class="pdf-fallback">If the PDF does not load here, <a href="dakhil-result-2022.pdf" target="_blank" rel="noopener noreferrer">open the original result</a>.</div>';}openModal()}));
 closeBtn?.addEventListener("click",closeModal);
 modal?.addEventListener("click",e=>{if(e.target.dataset.close==="true")closeModal()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeModal()});\n\nconst downloadAllCertificates=document.getElementById("downloadAllCertificates");
+downloadAllCertificates?.addEventListener("click",async()=>{
+  const certificateImage=document.querySelector("#openCertificate img");
+  if(!certificateImage)return;
+  try{
+    await downloadFile(certificateImage.src,"5-Day Hands-on Research Training Program - Certificate of Completion - RUHERF - 2026.jpg");
+  }catch(error){
+    console.error(error);
+    alert("Unable to download the certificate right now.");
+  }
+});
 
 
 /* Gallery lightbox */
@@ -32,8 +42,70 @@ function showGalleryImage(index){
 }
 function openGallery(index){showGalleryImage(index);galleryLightbox.classList.add("open");galleryLightbox.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
 function closeGallery(){galleryLightbox.classList.remove("open");galleryLightbox.setAttribute("aria-hidden","true");document.body.style.overflow=""}
-galleryItems.forEach(item=>item.addEventListener("click",()=>openGallery(Number(item.dataset.index))));
+
+async function downloadFile(url,filename){
+  const response=await fetch(url);
+  if(!response.ok)throw new Error("Download failed");
+  const blob=await response.blob();
+  const objectUrl=URL.createObjectURL(blob);
+  const link=document.createElement("a");
+  link.href=objectUrl;
+  link.download=filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);
+}
+
+function getGalleryFileName(item){
+  const img=item.querySelector("img");
+  return img?.getAttribute("src")?.split("/").pop()||"gallery-image";
+}
+
+galleryItems.forEach(item=>{
+  item.addEventListener("click",e=>{
+    if(e.target.closest(".gallery-download"))return;
+    openGallery(Number(item.dataset.index));
+  });
+  const downloadBtn=item.querySelector(".gallery-download");
+  downloadBtn?.addEventListener("click",async e=>{
+    e.preventDefault();
+    e.stopPropagation();
+    try{await downloadFile(item.querySelector("img").src,getGalleryFileName(item));}
+    catch(error){console.error(error);alert("Unable to download this image right now.");}
+  });
+  downloadBtn?.addEventListener("keydown",e=>{
+    if(e.key==="Enter"||e.key===" "){e.preventDefault();downloadBtn.click();}
+  });
+});
 galleryClose?.addEventListener("click",closeGallery);
+
+const downloadAllGallery=document.getElementById("downloadAllGallery");
+downloadAllGallery?.addEventListener("click",async()=>{
+  if(typeof JSZip==="undefined"){alert("Download tool is not available right now.");return;}
+  const zip=new JSZip();
+  const folder=zip.folder("Gallery Images");
+  try{
+    for(const item of galleryItems){
+      const img=item.querySelector("img");
+      const response=await fetch(img.src);
+      if(!response.ok)throw new Error("Download failed");
+      folder.file(getGalleryFileName(item),await response.blob());
+    }
+    const blob=await zip.generateAsync({type:"blob"});
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement("a");
+    link.href=url;
+    link.download="Gallery Images.zip";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }catch(error){
+    console.error(error);
+    alert("Unable to prepare the Gallery ZIP right now.");
+  }
+});
 galleryLightbox?.addEventListener("click",e=>{if(e.target.dataset.galleryClose==="true")closeGallery()});
 document.addEventListener("keydown",e=>{
   if(!galleryLightbox?.classList.contains("open"))return;
