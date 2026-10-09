@@ -276,3 +276,9 @@ footer span:last-child{font-family:"Amiri",serif;font-size:12px;letter-spacing:0
 /* Keep each gallery download control anchored to the bottom-right corner of its card. */
 .gallery-item{position:relative!important}
 .gallery-item .gallery-download{position:absolute!important;right:8px!important;left:auto!important;bottom:7px!important;top:auto!important;margin:0!important;}
+
+
+/* Gallery six-column desktop grid with responsive tablet and mobile layouts. */
+@media(min-width:1100px){.gallery-grid{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:14px!important}}
+@media(min-width:561px) and (max-width:1099px){.gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important}}
+@media(max-width:560px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}}
